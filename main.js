@@ -20,7 +20,22 @@ const returnRandBase = () => {
     };
   };
   
+ // Function to test pAequorFactory
+function testPAequorFactory() {
+    // Use mockUpStrand() to generate random DNA
+    const testOrganism = pAequorFactory(1, mockUpStrand());
   
+    // Print the returned object
+    console.log("Testing pAequorFactory:");
+    console.log(testOrganism);
+  
+    // Check if the object contains the correct properties
+    console.log("Specimen Number:", testOrganism.specimenNum); // Should be 1
+    console.log("DNA Strand:", testOrganism.dna); // Should contain an array of 15 bases
+  }
+  
+  // Run the test
+  testPAequorFactory(); 
   
   
   
