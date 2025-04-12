@@ -69,7 +69,11 @@ const returnRandBase = () => {
     
     // Run the test
     testPAequorFactory(); 
-    
+const specimen1 = pAequorFactory(1, ['A', 'T', 'C', 'G', 'A']);
+const specimen2 = pAequorFactory(2, ['A', 'T', 'G', 'G', 'C']);
+
+// Compare their DNA
+specimen1.compareDNA(specimen2);
     
     
   
