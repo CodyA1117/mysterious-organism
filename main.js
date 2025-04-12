@@ -16,7 +16,24 @@ const returnRandBase = () => {
   function pAequorFactory(specimenNum, dna){
     return {
         specimenNum: specimenNum,
-        dna: dna
+        dna: dna,
+        mutate(){
+          const dnaBases = ['A', 'T', 'C', 'G'];
+          const randomIndex = Math.floor(Math.random() * this.dna.length);
+
+          const currentBase = this.dna[randomIndex];
+
+          let newBase = currentBase;
+          while(newBase === currentBase){
+            newBase = dnaBases[Math.floor(Math.random() *4)];
+          }
+
+          this.dna[randomIndex] = newBase;
+
+          return this.dna;
+
+          
+        }
     };
   };
   
