@@ -12,6 +12,13 @@ const returnRandBase = () => {
     }
     return newStrand
   }
+
+  function pAequorFactory(specimenNum, dna){
+    return {
+        specimenNum: specimenNum,
+        dna: dna
+    };
+  };
   
   
   
