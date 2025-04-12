@@ -49,6 +49,18 @@ const returnRandBase = () => {
   
         // Print the result
         console.log(`Specimen #${this.specimenNum} and Specimen #${otherPAequor.specimenNum} have ${percentageMatch.toFixed(2)}% DNA in common.`);
+      },
+
+      willLikelySurvive(){
+        let matchCount = 0;
+        for(i = 0; i < this.dna.length; i++){
+            if(this.dna[i] === 'C' || this.dna[i] === 'G'){
+                matchCount ++;
+            }
+        }
+        const percentage = (matchCount / this.dna.length) * 100;
+
+        return percentage >= 60;
       }
     };
   };
@@ -74,8 +86,16 @@ const specimen2 = pAequorFactory(2, ['A', 'T', 'G', 'G', 'C']);
 
 // Compare their DNA
 specimen1.compareDNA(specimen2);
+
+const specimen = pAequorFactory(1, ['A', 'C', 'G', 'G', 'T', 'C', 'C', 'G', 'A', 'T', 'C', 'G', 'A', 'C', 'T']);
+console.log("Will Likely Survive:", specimen.willLikelySurvive());
     
-    
+ // Create a sample organism with a DNA strand unlikely to survive
+const weakOrganism = pAequorFactory(1, ['A', 'T', 'A', 'T', 'A', 'T', 'A', 'T', 'A', 'T', 'A', 'T', 'A', 'T', 'A']);
+
+// Test .willLikelySurvive() for this DNA
+console.log("Will Likely Survive (Expected: false):", weakOrganism.willLikelySurvive());
+   
   
   
   
