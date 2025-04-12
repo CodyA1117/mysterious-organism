@@ -64,6 +64,32 @@ const returnRandBase = () => {
       }
     };
   };
+
+  function createSurvivingPAequor(numSurvivors) {
+    const survivors = [];
+    let specimenNum = 1;
+    let totalAttempts = 0; // Count total organisms created
+  
+    while (survivors.length < numSurvivors) {
+      totalAttempts++; // Increment every attempt
+      const newOrganism = pAequorFactory(specimenNum, mockUpStrand());
+      if (newOrganism.willLikelySurvive()) {
+        survivors.push(newOrganism);
+      }
+      specimenNum++;
+    }
+  
+    console.log("Total Attempts Made:", totalAttempts);
+    return survivors;
+  }
+  
+  
+  
+  
+  // Create 30 surviving pAequor organisms
+  const survivingPAequor = createSurvivingPAequor(30);
+  console.log("Surviving P. Aequor Organisms:", survivingPAequor);
+  
     
    // Function to test pAequorFactory
   function testPAequorFactory() {
